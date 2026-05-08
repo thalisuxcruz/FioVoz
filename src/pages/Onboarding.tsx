@@ -44,19 +44,19 @@ export const Onboarding = ({
             <BrandGlyph className="w-8 h-8" />
           </div>
           <h1 className="text-3xl font-serif text-fio-text mb-4">
-            Ola! Eu sou o FioVoz Brasilia.
+            Olá! Eu sou o FioVoz Brasília.
           </h1>
           <p className="text-lg text-fio-textLight max-w-2xl mx-auto leading-relaxed">
-            Transformo documentos de aula em texto corrido, pronto para narracao
-            e producao de audiobooks.
+            Transformo documentos de aula em texto corrido, pronto para narração
+            e produção de audiobooks.
             <strong className="text-fio-text font-medium">
               {' '}
-              Eu preservo integralmente o conteudo original
+              Eu preservo integralmente o conteúdo original
             </strong>
-            , apenas organizo a leitura para garantir maxima acessibilidade.
+            , apenas organizo a leitura para garantir máxima acessibilidade.
           </p>
           <p className="mt-6 text-fio-teal font-medium">
-            Escolha uma opcao para comecar:
+            Escolha uma opção para começar:
           </p>
         </motion.div>
 
@@ -70,28 +70,28 @@ export const Onboarding = ({
             primary
             icon={<FileText className="w-6 h-6 text-white" />}
             title="Enviar texto de uma aula"
-            body="Cole seu documento e deixe-me prepara-lo para audio."
+            body="Cole seu documento e deixe-me prepará-lo para áudio."
             onClick={() => onViewChange('workspace')}
             variants={itemVariants}
           />
           <ActionCard
             icon={<Eye className="w-6 h-6 text-fio-teal" />}
             title="Ver exemplo pronto"
-            body="Veja como fica um documento apos a adaptacao."
+            body="Veja como fica um documento após a adaptação."
             onClick={() => onViewChange('result')}
             variants={itemVariants}
           />
           <ActionCard
             icon={<BookOpen className="w-6 h-6 text-fio-teal" />}
-            title="Ver regras de adaptacao"
-            body="Entenda os criterios de acessibilidade aplicados."
+            title="Ver regras de adaptação"
+            body="Entenda os critérios de acessibilidade aplicados."
             onClick={() => onViewChange('rules')}
             variants={itemVariants}
           />
           <ActionCard
             icon={<ImageIcon className="w-6 h-6 text-fio-teal" />}
             title="Imagens e tabelas"
-            body="Como o FioVoz orienta a descricao de elementos visuais."
+            body="Como o FioVoz orienta a descrição de elementos visuais."
             onClick={() => onViewChange('rules')}
             variants={itemVariants}
           />
@@ -111,7 +111,7 @@ export const Onboarding = ({
           </div>
           <div className="flex items-center gap-1.5 bg-fio-paperDark px-3 py-1.5 rounded-full border border-fio-border">
             <div className="w-3.5 h-3.5 rounded-full bg-black border border-white" />
-            Alto contraste disponivel
+            Alto contraste disponível
           </div>
         </motion.div>
       </div>

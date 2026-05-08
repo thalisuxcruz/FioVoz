@@ -26,14 +26,14 @@ export const Workspace = ({
   }
 
   const loadExample = () => {
-    setText(`A vigilancia epidemiologica no Brasil (SILVA, 2021, p. 112) tem sido fundamental para o controle de doencas. Segundo o Ministerio da Saude, "a notificacao compulsoria e o principal instrumento" (2020).
+    setText(`A vigilância epidemiológica no Brasil (SILVA, 2021, p. 112) tem sido fundamental para o controle de doenças. Segundo o Ministério da Saúde, "a notificação compulsória é o principal instrumento" (2020).
 
 A OMS estabelece diretrizes globais para o monitoramento.
 
 [Fig. 1 - Mapa de Casos de Dengue em 2022]
 
 O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
-"A capilaridade do sistema permite respostas rapidas a surtos locais." (p. 45)`)
+"A capilaridade do sistema permite respostas rápidas a surtos locais." (p. 45)`)
   }
 
   return (
@@ -44,7 +44,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
             onClick={() => onViewChange('landing')}
             className="hover:text-fio-teal transition-colors"
           >
-            Inicio
+            Início
           </button>
           <ChevronRight className="w-4 h-4" />
           <span className="text-fio-text font-medium">Preparar aula</span>
@@ -70,7 +70,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                 <textarea
                   value={text}
                   onChange={(event) => setText(event.target.value)}
-                  placeholder="Cole o texto do documento aqui. O FioVoz vai estruturar para narracao sem alterar o conteudo original."
+                  placeholder="Cole o texto do documento aqui. O FioVoz vai estruturar para narração sem alterar o conteúdo original."
                   className="w-full h-full resize-none outline-none font-serif text-lg leading-relaxed text-fio-text placeholder:text-fio-textLight/50 bg-transparent"
                 />
 
@@ -78,7 +78,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                   <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center text-fio-textLight/40">
                     <Sparkles className="w-12 h-12 mb-4 opacity-20" />
                     <p className="font-serif text-lg">
-                      Seu texto estruturado aparecera aqui
+                      Seu texto estruturado aparecerá aqui
                     </p>
                   </div>
                 )}
@@ -103,7 +103,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                   />
                   <span className="text-fio-text group-hover:text-fio-teal transition-colors flex items-center gap-1.5">
                     <BookMarked className="w-4 h-4 text-fio-textLight" />
-                    Referencias em arquivo separado
+                    Referências em arquivo separado
                   </span>
                 </label>
 
@@ -158,17 +158,17 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                   Regras essenciais
                 </h3>
                 <p className="text-sm text-fio-textLight mb-6">
-                  O FioVoz aplicara automaticamente as seguintes adaptacoes ao
+                  O FioVoz aplicará automaticamente as seguintes adaptações ao
                   seu texto:
                 </p>
 
                 <ul className="space-y-3 mb-8">
                   {[
                     'Expandir e sonorizar siglas',
-                    'Adaptar citacoes para leitura',
-                    'Remover paginacao solta',
-                    'Tratar notas de rodape',
-                    'Orientar descricoes de imagens',
+                    'Adaptar citações para leitura',
+                    'Remover paginação solta',
+                    'Tratar notas de rodapé',
+                    'Orientar descrições de imagens',
                     'Separar bibliografia',
                   ].map((rule) => (
                     <li
@@ -187,12 +187,12 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                   <Shield className="w-5 h-5 text-fio-sand shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-fio-text text-sm mb-1">
-                      Conteudo preservado
+                      Conteúdo preservado
                     </h4>
                     <p className="text-xs text-fio-textLight leading-relaxed">
-                      O conteudo original e preservado integralmente. Nenhuma
-                      palavra do autor e alterada, apenas a estrutura de leitura
-                      e adaptada para o locutor.
+                      O conteúdo original é preservado integralmente. Nenhuma
+                      palavra do autor é alterada, apenas a estrutura de leitura
+                      é adaptada para o locutor.
                     </p>
                   </div>
                 </div>

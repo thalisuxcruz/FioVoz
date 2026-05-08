@@ -36,14 +36,14 @@ export const Landing = ({
               <span className="text-fio-teal italic">audiobook.</span>
             </h1>
             <p className="text-lg text-fio-textLight mb-8 leading-relaxed max-w-xl">
-              O FioVoz transforma materiais academicos em texto corrido
+              O FioVoz transforma materiais acadêmicos em texto corrido
               preparado para leitura em voz alta.
               <strong className="font-medium text-fio-text">
                 {' '}
-                Preservamos 100% do conteudo original
+                Preservamos 100% do conteúdo original
               </strong>
               , estruturando apenas a forma para garantir acessibilidade e
-              inclusao.
+              inclusão.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button
@@ -51,7 +51,7 @@ export const Landing = ({
                 onClick={() => onViewChange('workspace')}
                 icon={<ArrowRight className="w-4 h-4" />}
               >
-                Comecar a preparar aula
+                Começar a preparar aula
               </Button>
               <Button
                 variant="outline"
@@ -111,7 +111,7 @@ export const Landing = ({
                   </div>
                   <div className="flex items-center justify-center gap-2 text-fio-teal text-sm font-medium">
                     <Headphones className="w-4 h-4" />
-                    <span>Pronto para narracao</span>
+                    <span>Pronto para narração</span>
                   </div>
                 </div>
               </div>
@@ -127,8 +127,8 @@ export const Landing = ({
               Por que usar o FioVoz?
             </h2>
             <p className="text-fio-textLight max-w-2xl mx-auto">
-              Uma ferramenta pensada para as necessidades reais da educacao
-              publica e producao de materiais acessiveis.
+              Uma ferramenta pensada para as necessidades reais da educação
+              pública e produção de materiais acessíveis.
             </p>
           </div>
 
@@ -136,23 +136,23 @@ export const Landing = ({
             {[
               {
                 icon: ShieldCheck,
-                title: 'Preservacao do conteudo',
-                desc: 'O texto original e os direitos autorais sao mantidos intactos.',
+                title: 'Preservação do conteúdo',
+                desc: 'O texto original e os direitos autorais são mantidos intactos.',
               },
               {
                 icon: Layers,
-                title: 'Padronizacao',
+                title: 'Padronização',
                 desc: 'Aplica regras consistentes de leitura para todo o material.',
               },
               {
                 icon: Headphones,
-                title: 'Apoio a narracao',
+                title: 'Apoio à narração',
                 desc: 'Facilita o trabalho de locutores e softwares de leitura de tela.',
               },
               {
                 icon: BookOpen,
                 title: 'Acessibilidade',
-                desc: 'Torna o conhecimento cientifico acessivel a mais pessoas.',
+                desc: 'Torna o conhecimento científico acessível a mais pessoas.',
               },
             ].map((benefit, index) => (
               <div
@@ -184,10 +184,10 @@ export const Landing = ({
             <div className="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-fio-border" />
 
             {[
-              ['1', 'Cole o texto', 'Insira o conteudo original da sua aula ou documento.'],
+              ['1', 'Cole o texto', 'Insira o conteúdo original da sua aula ou documento.'],
               ['2', 'FioVoz aplica regras', 'O sistema estrutura o texto para leitura em voz alta.'],
-              ['3', 'Revise o resultado', 'Confira as adaptacoes e avisos sobre imagens.'],
-              ['4', 'Exporte para narracao', 'Baixe o roteiro pronto para o estudio ou leitor de tela.'],
+              ['3', 'Revise o resultado', 'Confira as adaptações e avisos sobre imagens.'],
+              ['4', 'Exporte para narração', 'Baixe o roteiro pronto para o estúdio ou leitor de tela.'],
             ].map(([step, title, desc]) => (
               <div key={step} className="flex-1 relative z-10">
                 <div className="w-12 h-12 rounded-full bg-fio-teal text-white flex items-center justify-center font-serif text-xl mb-6 shadow-sm border-4 border-fio-paperDark mx-auto md:mx-0">
@@ -210,18 +210,18 @@ export const Landing = ({
               Regras aplicadas automaticamente
             </h2>
             <p className="text-fio-textLight mb-8">
-              O FioVoz segue diretrizes rigidas de acessibilidade para garantir
-              que a narracao flua naturalmente, sem perder o rigor academico.
+              O FioVoz segue diretrizes rígidas de acessibilidade para garantir
+              que a narração flua naturalmente, sem perder o rigor acadêmico.
             </p>
 
             <ul className="space-y-4">
               {[
-                'Transforma citacoes em formato narravel',
+                'Transforma citações em formato narrável',
                 'Expande e sonoriza siglas (ex: SUS, OMS)',
-                'Remove paginacao e cabecalhos soltos',
-                'Orienta descricoes de imagens e tabelas',
-                'Trata notas de rodape como pausas explicativas',
-                'Separa referencias bibliograficas do audio principal',
+                'Remove paginação e cabeçalhos soltos',
+                'Orienta descrições de imagens e tabelas',
+                'Trata notas de rodapé como pausas explicativas',
+                'Separa referências bibliográficas do áudio principal',
               ].map((rule) => (
                 <li
                   key={rule}
@@ -251,29 +251,29 @@ export const Landing = ({
             </div>
             <div className="grid grid-cols-2 divide-x divide-fio-border">
               <div className="p-6 font-mono text-xs leading-relaxed text-fio-textLight bg-white">
-                A saude publica no Brasil (SILVA, 2020, p. 45) enfrenta
-                desafios. Segundo a OMS, "a equidade e fundamental" (2019).
+                A saúde pública no Brasil (SILVA, 2020, p. 45) enfrenta
+                desafios. Segundo a OMS, "a equidade é fundamental" (2019).
                 <br />
                 <br />
-                [Fig. 2 - Grafico de vacinacao]
+                [Fig. 2 - Gráfico de vacinação]
                 <br />
                 <br />O SUS precisa de mais investimentos estruturais.
               </div>
               <div className="p-6 font-serif text-sm leading-relaxed text-fio-text bg-fio-teal/5">
-                A saude publica no Brasil enfrenta desafios, conforme aponta
+                A saúde pública no Brasil enfrenta desafios, conforme aponta
                 Silva, no ano de 2020.
                 <br />
                 <br />
-                Segundo a Organizacao Mundial da Saude, abre aspas, a equidade e
+                Segundo a Organização Mundial da Saúde, abre aspas, a equidade é
                 fundamental, fecha aspas.
                 <br />
                 <br />
                 <span className="text-fio-sand font-mono text-xs bg-fio-sand/10 px-1 rounded">
-                  [Aviso ao locutor: Inserir descricao da Figura 2 - Grafico de
-                  vacinacao]
+                  [Aviso ao locutor: Inserir descrição da Figura 2 - Gráfico de
+                  vacinação]
                 </span>
                 <br />
-                <br />O Sistema Unico de Saude precisa de mais investimentos
+                <br />O Sistema Único de Saúde precisa de mais investimentos
                 estruturais.
               </div>
             </div>
@@ -284,14 +284,14 @@ export const Landing = ({
       <section className="py-20 bg-fio-sand/10 border-t border-fio-sand/20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-serif text-fio-text mb-6">
-            Pronto para tornar suas aulas mais acessiveis?
+            Pronto para tornar suas aulas mais acessíveis?
           </h2>
           <p className="text-fio-textLight mb-8">
-            Junte-se as equipes da Fiocruz que ja estao transformando a educacao
-            a distancia.
+            Junte-se às equipes da Fiocruz que já estão transformando a educação
+            a distância.
           </p>
           <Button size="lg" onClick={() => onViewChange('workspace')}>
-            Comecar a preparar aula
+            Começar a preparar aula
           </Button>
         </div>
       </section>

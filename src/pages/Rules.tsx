@@ -7,11 +7,11 @@ export const Rules = ({
   onViewChange: (v: ViewState) => void
 }) => {
   const sections = [
-    { id: 'preservacao', title: 'Preservacao do conteudo original' },
-    { id: 'citacoes', title: 'Citacoes e Autores' },
-    { id: 'siglas', title: 'Siglas (Expansao e Sonorizacao)' },
+    { id: 'preservacao', title: 'Preservação do conteúdo original' },
+    { id: 'citacoes', title: 'Citações e Autores' },
+    { id: 'siglas', title: 'Siglas (Expansão e Sonorização)' },
     { id: 'imagens', title: 'Imagens e Tabelas' },
-    { id: 'referencias', title: 'Referencias Bibliograficas' },
+    { id: 'referencias', title: 'Referências Bibliográficas' },
   ]
 
   return (
@@ -23,15 +23,15 @@ export const Rules = ({
             onClick={() => onViewChange('landing')}
           >
             <BookOpen className="w-4 h-4" />
-            Voltar ao inicio
+            Voltar ao início
           </button>
           <h1 className="text-4xl font-serif text-fio-text mb-4">
-            Regras de Adaptacao
+            Regras de Adaptação
           </h1>
           <p className="text-lg text-fio-textLight max-w-3xl">
-            Entenda os criterios de acessibilidade aplicados pelo FioVoz para
+            Entenda os critérios de acessibilidade aplicados pelo FioVoz para
             transformar documentos em roteiros de audiobook, mantendo o rigor
-            academico e institucional.
+            acadêmico e institucional.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export const Rules = ({
           <div className="hidden lg:block lg:col-span-3 sticky top-24">
             <nav className="space-y-1">
               <h3 className="text-xs font-bold uppercase tracking-wider text-fio-textLight mb-4 px-3">
-                Nesta pagina
+                Nesta página
               </h3>
               {sections.map((section) => (
                 <a
@@ -59,13 +59,13 @@ export const Rules = ({
                 <Shield className="w-8 h-8 text-fio-teal shrink-0" />
                 <div>
                   <h2 className="text-xl font-serif text-fio-text mb-2">
-                    O FioVoz nunca altera o conteudo original.
+                    O FioVoz nunca altera o conteúdo original.
                   </h2>
                   <p className="text-fio-textLight leading-relaxed">
-                    Como uma ferramenta institucional da Fiocruz Brasilia,
+                    Como uma ferramenta institucional da Fiocruz Brasília,
                     respeitamos rigorosamente os direitos autorais. O valor do
-                    FioVoz esta na estruturacao da leitura, nao na reescrita.
-                    Nenhuma palavra conceitual do autor e modificada.
+                    FioVoz está na estruturação da leitura, não na reescrita.
+                    Nenhuma palavra conceitual do autor é modificada.
                   </p>
                 </div>
               </div>
@@ -73,18 +73,18 @@ export const Rules = ({
 
             <RuleSection
               id="citacoes"
-              title="Citacoes e Autores"
-              body="Citacoes academicas no formato ABNT quebram o ritmo da narracao e dificultam a compreensao em audio. O FioVoz adapta essas chamadas para uma linguagem fluida."
-              original="A saude publica (SILVA, 2020) e essencial."
-              adapted="A saude publica e essencial, conforme aponta Silva, no ano de 2020."
+              title="Citações e Autores"
+              body="Citações acadêmicas no formato ABNT quebram o ritmo da narração e dificultam a compreensão em áudio. O FioVoz adapta essas chamadas para uma linguagem fluida."
+              original="A saúde pública (SILVA, 2020) é essencial."
+              adapted="A saúde pública é essencial, conforme aponta Silva, no ano de 2020."
             />
 
             <RuleSection
               id="siglas"
-              title="Siglas (Expansao e Sonorizacao)"
-              body="Siglas conhecidas sao mantidas por extenso na primeira mencao e sonorizadas nas seguintes, garantindo que o ouvinte compreenda a instituicao referida sem confusao fonetica."
+              title="Siglas (Expansão e Sonorização)"
+              body="Siglas conhecidas são mantidas por extenso na primeira menção e sonorizadas nas seguintes, garantindo que o ouvinte compreenda a instituição referida sem confusão fonética."
               original="O SUS e a OMS definiram metas."
-              adapted="O Sistema Unico de Saude e a Organizacao Mundial da Saude definiram metas."
+              adapted="O Sistema Único de Saúde e a Organização Mundial da Saúde definiram metas."
             />
 
             <section id="imagens" className="scroll-mt-24">
@@ -92,30 +92,30 @@ export const Rules = ({
                 Imagens e Tabelas
               </h2>
               <p className="text-fio-textLight mb-6 leading-relaxed">
-                O FioVoz nao gera audiodescricoes automaticamente para evitar
-                alucinacoes de IA em graficos cientificos. Em vez disso, ele
+                O FioVoz não gera audiodescrições automaticamente para evitar
+                alucinações de IA em gráficos científicos. Em vez disso, ele
                 insere marcadores claros no roteiro para que o locutor saiba
-                exatamente onde ler a descricao fornecida pela equipe de
+                exatamente onde ler a descrição fornecida pela equipe de
                 acessibilidade.
               </p>
 
               <div className="bg-fio-sand/10 border-l-4 border-fio-sand p-4 rounded-r-lg">
                 <p className="text-sm font-mono text-fio-textLight m-0">
-                  [Aviso ao locutor: Inserir descricao da Figura 1 - Grafico de
-                  incidencia]
+                  [Aviso ao locutor: Inserir descrição da Figura 1 - Gráfico de
+                  incidência]
                 </p>
               </div>
             </section>
 
             <section id="referencias" className="scroll-mt-24">
               <h2 className="text-2xl font-serif text-fio-text mb-6">
-                Referencias Bibliograficas
+                Referências Bibliográficas
               </h2>
               <p className="text-fio-textLight leading-relaxed">
-                Ler uma lista de referencias bibliograficas no final de um
-                capitulo de audiobook e exaustivo e pouco util para o ouvinte. O
-                FioVoz extrai automaticamente a secao de referencias e sugere
-                que ela seja gravada como uma faixa de audio separada.
+                Ler uma lista de referências bibliográficas no final de um
+                capítulo de audiobook é exaustivo e pouco útil para o ouvinte. O
+                FioVoz extrai automaticamente a seção de referências e sugere
+                que ela seja gravada como uma faixa de áudio separada.
               </p>
             </section>
           </div>
@@ -151,7 +151,7 @@ const RuleSection = ({
       </div>
       <div className="bg-fio-teal/5 p-4 rounded-lg border border-fio-teal/20">
         <div className="text-xs font-bold text-fio-teal uppercase mb-2">
-          Adaptado para Audio
+          Adaptado para Áudio
         </div>
         <p className="font-serif text-sm text-fio-text">{adapted}</p>
       </div>

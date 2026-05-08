@@ -22,7 +22,7 @@ export const Result = ({
             <CheckCircle2 className="w-5 h-5" />
             Pronto para audiobook
           </div>
-          {['Siglas expandidas', 'Citacoes adaptadas', 'Bibliografia separada'].map(
+          {['Siglas expandidas', 'Citações adaptadas', 'Bibliografia separada'].map(
             (label) => (
               <div
                 key={label}
@@ -41,21 +41,21 @@ export const Result = ({
               <div className="max-w-2xl mx-auto">
                 <div>
                   <h1 className="font-serif text-3xl text-fio-text mb-8">
-                    A Vigilancia Epidemiologica no Brasil
+                    A Vigilância Epidemiológica no Brasil
                   </h1>
 
                   <div className="font-serif text-lg leading-[1.8] text-fio-text space-y-6">
                     <p>
-                      A vigilancia epidemiologica no Brasil tem sido fundamental
-                      para o controle de doencas, conforme aponta Silva, no ano
+                      A vigilância epidemiológica no Brasil tem sido fundamental
+                      para o controle de doenças, conforme aponta Silva, no ano
                       de 2021.
                     </p>
                     <p>
-                      Segundo o Ministerio da Saude, abre aspas, a notificacao
-                      compulsoria e o principal instrumento, fecha aspas.
+                      Segundo o Ministério da Saúde, abre aspas, a notificação
+                      compulsória é o principal instrumento, fecha aspas.
                     </p>
                     <p>
-                      A Organizacao Mundial da Saude estabelece diretrizes
+                      A Organização Mundial da Saúde estabelece diretrizes
                       globais para o monitoramento.
                     </p>
 
@@ -63,21 +63,21 @@ export const Result = ({
                       <p className="text-sm font-mono text-fio-textLight m-0 flex items-start gap-2">
                         <Info className="w-4 h-4 text-fio-sand shrink-0 mt-0.5" />
                         <span>
-                          [Aviso ao locutor: Inserir aqui a audiodescricao da
+                          [Aviso ao locutor: Inserir aqui a audiodescrição da
                           Figura 1 - Mapa de Casos de Dengue em 2022. O roteiro
-                          de descricao deve ser fornecido pela equipe de
+                          de descrição deve ser fornecido pela equipe de
                           acessibilidade.]
                         </span>
                       </p>
                     </div>
 
                     <p>
-                      O Sistema Unico de Saude atua na ponta, garantindo
+                      O Sistema Único de Saúde atua na ponta, garantindo
                       atendimento. Como aponta Oliveira, no ano de 2019:
                     </p>
                     <p className="pl-6 border-l-2 border-fio-teal/30 italic text-fio-textLight">
-                      Abre citacao em destaque: A capilaridade do sistema
-                      permite respostas rapidas a surtos locais. Fecha citacao
+                      Abre citação em destaque: A capilaridade do sistema
+                      permite respostas rápidas a surtos locais. Fecha citação
                       em destaque.
                     </p>
                   </div>
@@ -122,8 +122,8 @@ export const Result = ({
               <div className="p-4 space-y-3">
                 {[
                   ['Siglas expandidas', '3'],
-                  ['Citacoes adaptadas', '2'],
-                  ['Imagens com orientacao', '1'],
+                  ['Citações adaptadas', '2'],
+                  ['Imagens com orientação', '1'],
                 ].map(([label, value]) => (
                   <div
                     key={label}
@@ -146,14 +146,14 @@ export const Result = ({
               <ul className="space-y-3 text-xs text-fio-textLight leading-relaxed">
                 <li className="flex gap-2">
                   <span className="text-fio-sand">•</span>
-                  As referencias bibliograficas foram extraidas e devem ser
-                  gravadas em um arquivo de audio separado, conforme padrao
+                  As referências bibliográficas foram extraídas e devem ser
+                  gravadas em um arquivo de áudio separado, conforme padrão
                   Fiocruz.
                 </li>
                 <li className="flex gap-2">
                   <span className="text-fio-sand">•</span>
                   Uma imagem foi detectada. Certifique-se de que a equipe de
-                  acessibilidade forneceu o roteiro de audiodescricao.
+                  acessibilidade forneceu o roteiro de audiodescrição.
                 </li>
               </ul>
             </div>
