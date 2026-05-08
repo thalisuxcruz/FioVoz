@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
@@ -10,36 +9,6 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Button, ViewState } from '../components/Shared'
-
-const demoPlaceholder =
-  'Exemplo: RAPS é uma estratégia importante no cuidado em saúde mental. O trabalho em saúde é formado por um conjunto de ações... (Merhy; Cecílio, 2003).'
-
-const initialDemoMessage = 'Cole um trecho de aula para começar.'
-
-const prepareDemoText = (value: string) => {
-  const ellipsisToken = '[[FIOVOZ_ELLIPSIS]]'
-  let prepared = value
-    .replace(/\.\.\./g, ellipsisToken)
-    .replace(/\bRAPS\b/g, 'Ráps, Rede de Atenção Psicossocial')
-    .replace(/\bHIV\b/g, 'Agá Ivê')
-    .replace(/\bPTS\b/g, 'Pê Tê Ésse')
-    .replace(/\bart\./gi, 'artigo')
-    .replace(/\bp\./gi, 'página')
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/[ \t]+/g, ' ')
-    .trim()
-
-  prepared = prepared.replace(
-    /([^.!?]+?)\s*\(Merhy;\s*Cecílio,\s*2003\)\.?/g,
-    (_, sentence: string, offset: number) => {
-      const citedSentence = sentence.trim().replaceAll(ellipsisToken, '...')
-      const prefix = offset > 0 ? ' ' : ''
-      return `${prefix}SEGUNDO os autores Merhy e Cecílio, 2003: ${citedSentence} ENCERRA Merhy e Cecílio.`
-    },
-  )
-
-  return prepared.replaceAll(ellipsisToken, '...')
-}
 
 export const Landing = ({
   onViewChange,
@@ -71,7 +40,7 @@ export const Landing = ({
               preparado para leitura em voz alta.
               <strong className="font-medium text-fio-text">
                 {' '}
-                Preservamos 100% do conteúdo original
+                Preservamos o conteúdo original
               </strong>
               , estruturando apenas a forma para garantir acessibilidade e
               inclusão.
@@ -110,7 +79,7 @@ export const Landing = ({
                   <div className="flex gap-2 items-center mt-4">
                     <div className="h-8 w-8 bg-fio-sand/20 rounded flex items-center justify-center">
                       <span className="text-xs font-mono text-fio-sand font-bold">
-                        FIG 1
+                        TXT
                       </span>
                     </div>
                     <div className="h-3 w-1/2 bg-fio-paperDark rounded" />
@@ -173,7 +142,7 @@ export const Landing = ({
               {
                 icon: Layers,
                 title: 'Padronização',
-                desc: 'Aplica regras consistentes de leitura para todo o material.',
+                desc: 'Aplica critérios consistentes de leitura para todo o material.',
               },
               {
                 icon: Headphones,
@@ -216,8 +185,8 @@ export const Landing = ({
 
             {[
               ['1', 'Cole o texto', 'Insira o conteúdo original da sua aula ou documento.'],
-              ['2', 'FioVoz aplica regras', 'O sistema estrutura o texto para leitura em voz alta.'],
-              ['3', 'Revise o resultado', 'Confira as adaptações e avisos sobre imagens.'],
+              ['2', 'FioVoz aplica critérios', 'O sistema estrutura o texto para leitura em voz alta.'],
+              ['3', 'Revise o resultado', 'Confira o texto preparado e os critérios aplicados.'],
               ['4', 'Exporte para narração', 'Baixe o roteiro pronto para o estúdio ou leitor de tela.'],
             ].map(([step, title, desc]) => (
               <div key={step} className="flex-1 relative z-10">
@@ -234,13 +203,11 @@ export const Landing = ({
         </div>
       </section>
 
-      <FioVozPracticeDemo />
-
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl font-serif text-fio-text mb-6">
-              Regras aplicadas automaticamente
+              Critérios de preparação
             </h2>
             <p className="text-fio-textLight mb-8">
               O FioVoz segue diretrizes rígidas de acessibilidade para garantir
@@ -249,10 +216,9 @@ export const Landing = ({
 
             <ul className="space-y-4">
               {[
-                'Transforma citações em formato narrável',
+                'Prepara citações para leitura em voz alta',
                 'Expande e sonoriza siglas (ex: SUS, OMS)',
                 'Remove paginação e cabeçalhos soltos',
-                'Orienta descrições de imagens e tabelas',
                 'Trata notas de rodapé como pausas explicativas',
                 'Separa referências bibliográficas do áudio principal',
               ].map((rule) => (
@@ -268,7 +234,7 @@ export const Landing = ({
 
             <div className="mt-8">
               <Button variant="outline" onClick={() => onViewChange('rules')}>
-                Ver todas as regras detalhadas
+                Ver todos os critérios detalhados
               </Button>
             </div>
           </div>
@@ -279,7 +245,7 @@ export const Landing = ({
                 Original
               </div>
               <div className="p-3 text-center text-xs font-medium text-fio-teal uppercase tracking-wider border-l border-fio-border bg-fio-teal/5">
-                Adaptado (FioVoz)
+                Preparado (FioVoz)
               </div>
             </div>
             <div className="grid grid-cols-2 divide-x divide-fio-border">
@@ -288,9 +254,7 @@ export const Landing = ({
                 desafios. Segundo a OMS, "a equidade é fundamental" (2019).
                 <br />
                 <br />
-                [Fig. 2 - Gráfico de vacinação]
-                <br />
-                <br />O SUS precisa de mais investimentos estruturais.
+                O SUS precisa de mais investimentos estruturais.
               </div>
               <div className="p-6 font-serif text-sm leading-relaxed text-fio-text bg-fio-teal/5">
                 A saúde pública no Brasil enfrenta desafios, conforme aponta
@@ -299,13 +263,6 @@ export const Landing = ({
                 <br />
                 Segundo a Organização Mundial da Saúde, abre aspas, a equidade é
                 fundamental, fecha aspas.
-                <br />
-                <br />
-                <span className="text-fio-sand font-mono text-xs bg-fio-sand/10 px-1 rounded">
-                  [Aviso ao locutor: Inserir descrição da Figura 2 - Gráfico de
-                  vacinação]
-                </span>
-                <br />
                 <br />O Sistema Único de Saúde precisa de mais investimentos
                 estruturais.
               </div>
@@ -329,189 +286,5 @@ export const Landing = ({
         </div>
       </section>
     </div>
-  )
-}
-
-const FioVozPracticeDemo = () => {
-  const [originalText, setOriginalText] = useState('')
-  const [preparedText, setPreparedText] = useState('')
-  const [status, setStatus] = useState('')
-  const [isPreparing, setIsPreparing] = useState(false)
-  const [isSpeaking, setIsSpeaking] = useState(false)
-  const timeoutRef = useRef<number | null>(null)
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        window.clearTimeout(timeoutRef.current)
-      }
-      window.speechSynthesis?.cancel()
-    }
-  }, [])
-
-  const handlePrepare = () => {
-    if (originalText.trim().length === 0) {
-      setStatus('Insira um trecho de aula antes de continuar.')
-      return
-    }
-
-    window.speechSynthesis?.cancel()
-    setIsSpeaking(false)
-    setIsPreparing(true)
-    setStatus('Preparando o texto para narração...')
-
-    if (timeoutRef.current) {
-      window.clearTimeout(timeoutRef.current)
-    }
-
-    timeoutRef.current = window.setTimeout(() => {
-      setPreparedText(prepareDemoText(originalText))
-      setIsPreparing(false)
-      setStatus('Texto pronto para narração. Revise antes de gravar ou publicar.')
-    }, 400)
-  }
-
-  const handleSpeak = () => {
-    if (!preparedText || isPreparing) {
-      return
-    }
-
-    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
-      setStatus('Seu navegador não oferece suporte à prévia em áudio.')
-      return
-    }
-
-    window.speechSynthesis.cancel()
-
-    const utterance = new SpeechSynthesisUtterance(preparedText)
-    utterance.lang = 'pt-BR'
-    utterance.rate = 0.95
-    utterance.onstart = () => {
-      setIsSpeaking(true)
-      setStatus('Reproduzindo prévia em áudio.')
-    }
-    utterance.onend = () => {
-      setIsSpeaking(false)
-      setStatus('Prévia finalizada.')
-    }
-    utterance.onerror = () => {
-      setIsSpeaking(false)
-      setStatus('Seu navegador não oferece suporte à prévia em áudio.')
-    }
-
-    window.speechSynthesis.speak(utterance)
-  }
-
-  const handlePause = () => {
-    window.speechSynthesis?.cancel()
-    if (isSpeaking) {
-      setStatus('Prévia finalizada.')
-    }
-    setIsSpeaking(false)
-  }
-
-  const handleClear = () => {
-    if (timeoutRef.current) {
-      window.clearTimeout(timeoutRef.current)
-    }
-    window.speechSynthesis?.cancel()
-    setOriginalText('')
-    setPreparedText('')
-    setStatus('')
-    setIsPreparing(false)
-    setIsSpeaking(false)
-  }
-
-  const visibleResult = isPreparing
-    ? 'Preparando o texto para narração...'
-    : preparedText || initialDemoMessage
-
-  return (
-    <section className="py-24 bg-fio-paperDark border-y border-fio-border">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fio-teal/5 border border-fio-teal/10 text-fio-teal text-sm font-medium mb-5">
-            <Headphones className="w-4 h-4" />
-            Demonstração interativa
-          </div>
-          <h2 className="text-3xl md:text-4xl font-serif text-fio-text mb-4">
-            Teste o FioVoz na prática
-          </h2>
-          <p className="text-lg text-fio-textLight leading-relaxed">
-            Cole um trecho de aula e veja como o FioVoz organiza o conteúdo
-            para leitura em voz alta.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          <div className="bg-white rounded-2xl border border-fio-border shadow-card p-6 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-soft motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <label
-              htmlFor="fiovoz-demo-original"
-              className="block font-serif text-xl text-fio-text mb-3"
-            >
-              Texto original
-            </label>
-            <textarea
-              id="fiovoz-demo-original"
-              value={originalText}
-              onChange={(event) => setOriginalText(event.target.value)}
-              placeholder={demoPlaceholder}
-              className="min-h-[280px] w-full resize-y rounded-xl border border-fio-border bg-fio-paper px-4 py-3 font-serif text-base leading-relaxed text-fio-text placeholder:text-fio-textLight/60 outline-none transition-colors duration-200 ease-in-out focus:border-fio-teal focus:ring-2 focus:ring-fio-teal/30"
-            />
-          </div>
-
-          <div className="bg-white rounded-2xl border border-fio-border shadow-card p-6 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-soft motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <h3 className="font-serif text-xl text-fio-text mb-3">
-              Texto preparado para narração
-            </h3>
-            <div
-              className="fiovoz-demo-result min-h-[280px] rounded-xl border border-fio-border bg-fio-teal/5 px-4 py-3 font-serif text-base leading-relaxed text-fio-text whitespace-pre-wrap"
-              aria-live="polite"
-            >
-              {visibleResult}
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-fio-textLight">
-              O FioVoz prepara o texto para narração. A revisão humana continua
-              sendo necessária antes da gravação ou publicação.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Button onClick={handlePrepare} disabled={isPreparing}>
-            Preparar para narração
-          </Button>
-          <Button
-            variant="outline"
-            onClick={handleSpeak}
-            disabled={!preparedText || isPreparing}
-          >
-            Ouvir prévia em áudio
-          </Button>
-          <Button
-            variant="outline"
-            onClick={handlePause}
-            disabled={!isSpeaking}
-          >
-            Pausar
-          </Button>
-          <Button
-            variant="ghost"
-            onClick={handleClear}
-            disabled={!originalText && !preparedText && !status}
-          >
-            Limpar
-          </Button>
-        </div>
-
-        <div
-          className="mt-4 min-h-6 text-sm font-medium text-fio-teal"
-          aria-live="polite"
-          role="status"
-        >
-          {status}
-        </div>
-      </div>
-    </section>
   )
 }

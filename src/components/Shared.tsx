@@ -96,7 +96,7 @@ export const TopBar = ({
                 : 'text-fio-textLight hover:text-fio-teal'
             }`}
           >
-            Regras de Adaptação
+            Critérios de preparação
           </button>
           <button
             onClick={() => onViewChange('result')}
@@ -128,7 +128,7 @@ export const TopBar = ({
       </div>
       <div className="bg-fio-teal text-fio-paper text-xs py-1.5 px-6 text-center font-medium tracking-wide flex items-center justify-center gap-2">
         <Shield className="w-3 h-3 text-fio-sand" />
-        Um projeto do Núcleo de Educação a Distância - Fiocruz Brasília
+        Um projeto do Núcleo de Educação a Distância – Fiocruz Brasília
       </div>
     </header>
   )

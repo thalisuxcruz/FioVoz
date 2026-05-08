@@ -6,7 +6,6 @@ import {
   BookOpen,
   Eye,
   FileText,
-  Image as ImageIcon,
 } from 'lucide-react'
 import { BrandGlyph, ViewState } from '../components/Shared'
 
@@ -70,28 +69,21 @@ export const Onboarding = ({
             primary
             icon={<FileText className="w-6 h-6 text-white" />}
             title="Enviar texto de uma aula"
-            body="Cole seu documento e deixe-me prepará-lo para áudio."
+            body="Cole seu documento e deixe-me prepará-lo para narração."
             onClick={() => onViewChange('workspace')}
             variants={itemVariants}
           />
           <ActionCard
             icon={<Eye className="w-6 h-6 text-fio-teal" />}
             title="Ver exemplo pronto"
-            body="Veja como fica um documento após a adaptação."
+            body="Veja como fica um documento após a preparação."
             onClick={() => onViewChange('result')}
             variants={itemVariants}
           />
           <ActionCard
             icon={<BookOpen className="w-6 h-6 text-fio-teal" />}
-            title="Ver regras de adaptação"
+            title="Ver critérios de preparação"
             body="Entenda os critérios de acessibilidade aplicados."
-            onClick={() => onViewChange('rules')}
-            variants={itemVariants}
-          />
-          <ActionCard
-            icon={<ImageIcon className="w-6 h-6 text-fio-teal" />}
-            title="Imagens e tabelas"
-            body="Como o FioVoz orienta a descrição de elementos visuais."
             onClick={() => onViewChange('rules')}
             variants={itemVariants}
           />

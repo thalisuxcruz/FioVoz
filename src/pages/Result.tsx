@@ -1,28 +1,97 @@
+import { useEffect, useState } from 'react'
 import {
   AlertTriangle,
   CheckCircle2,
   Copy,
   Download,
   FileAudio,
-  Info,
   RefreshCcw,
+  Volume2,
 } from 'lucide-react'
 import { Button, ViewState } from '../components/Shared'
+
+const preparedResultText = `A vigilância epidemiológica no Brasil tem sido fundamental para o controle de doenças, conforme aponta Silva, no ano de 2021.
+
+Segundo o Ministério da Saúde, abre aspas, a notificação compulsória é o principal instrumento, fecha aspas.
+
+A Organização Mundial da Saúde estabelece diretrizes globais para o monitoramento.
+
+O Sistema Único de Saúde atua na ponta, garantindo atendimento. Como aponta Oliveira, no ano de 2019:
+
+Abre citação em destaque: A capilaridade do sistema permite respostas rápidas a surtos locais. Fecha citação em destaque.`
 
 export const Result = ({
   onViewChange,
 }: {
   onViewChange: (v: ViewState) => void
 }) => {
+  const [isSpeaking, setIsSpeaking] = useState(false)
+  const [audioStatus, setAudioStatus] = useState(
+    'Ouça uma prévia do texto preparado usando a voz disponível no navegador.',
+  )
+
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis?.cancel()
+    }
+  }, [])
+
+  const handleAudioPreview = () => {
+    if (!preparedResultText.trim()) {
+      return
+    }
+
+    if (isSpeaking) {
+      window.speechSynthesis?.cancel()
+      setIsSpeaking(false)
+      setAudioStatus('Prévia finalizada.')
+      return
+    }
+
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+      setAudioStatus('Seu navegador não oferece suporte à prévia em áudio.')
+      return
+    }
+
+    window.speechSynthesis.cancel()
+
+    const utterance = new SpeechSynthesisUtterance(preparedResultText)
+    utterance.lang = 'pt-BR'
+    utterance.rate = 0.95
+    utterance.onstart = () => {
+      setIsSpeaking(true)
+      setAudioStatus('Reproduzindo prévia em áudio.')
+    }
+    utterance.onend = () => {
+      setIsSpeaking(false)
+      setAudioStatus('Prévia finalizada.')
+    }
+    utterance.onerror = () => {
+      setIsSpeaking(false)
+      setAudioStatus('Seu navegador não oferece suporte à prévia em áudio.')
+    }
+
+    window.speechSynthesis.speak(utterance)
+  }
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(preparedResultText)
+      setAudioStatus('Texto preparado copiado.')
+    } catch {
+      setAudioStatus('Não foi possível copiar o texto preparado.')
+    }
+  }
+
   return (
     <div className="min-h-[calc(100vh-64px)] bg-fio-paperDark py-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-wrap items-center gap-3 mb-8">
           <div className="flex items-center gap-2 bg-fio-sage text-white px-4 py-2 rounded-full font-medium shadow-sm">
             <CheckCircle2 className="w-5 h-5" />
-            Pronto para audiobook
+            Texto pronto para narração
           </div>
-          {['Siglas expandidas', 'Citações adaptadas', 'Bibliografia separada'].map(
+          {['Siglas preparadas', 'Citações adaptadas', 'Referências separadas'].map(
             (label) => (
               <div
                 key={label}
@@ -59,18 +128,6 @@ export const Result = ({
                       globais para o monitoramento.
                     </p>
 
-                    <div className="bg-fio-sand/10 border-l-4 border-fio-sand p-4 my-6 rounded-r-lg">
-                      <p className="text-sm font-mono text-fio-textLight m-0 flex items-start gap-2">
-                        <Info className="w-4 h-4 text-fio-sand shrink-0 mt-0.5" />
-                        <span>
-                          [Aviso ao locutor: Inserir aqui a audiodescrição da
-                          Figura 1 - Mapa de Casos de Dengue em 2022. O roteiro
-                          de descrição deve ser fornecido pela equipe de
-                          acessibilidade.]
-                        </span>
-                      </p>
-                    </div>
-
                     <p>
                       O Sistema Único de Saúde atua na ponta, garantindo
                       atendimento. Como aponta Oliveira, no ano de 2019:
@@ -91,8 +148,23 @@ export const Result = ({
               <Button
                 className="w-full justify-center"
                 icon={<Copy className="w-4 h-4" />}
+                onClick={handleCopy}
               >
-                Copiar texto adaptado
+                Copiar texto preparado
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full justify-center"
+                icon={<Volume2 className="w-4 h-4" />}
+                onClick={handleAudioPreview}
+                disabled={!preparedResultText.trim()}
+                aria-label={
+                  isSpeaking
+                    ? 'Pausar prévia em áudio'
+                    : 'Ouvir prévia em áudio do texto preparado'
+                }
+              >
+                {isSpeaking ? 'Pausar áudio' : 'Ouvir prévia em áudio'}
               </Button>
               <Button
                 variant="outline"
@@ -108,22 +180,33 @@ export const Result = ({
                 onClick={() => onViewChange('workspace')}
                 icon={<RefreshCcw className="w-4 h-4" />}
               >
-                Revisar outro documento
+                Preparar outro documento
               </Button>
+              <div
+                className="pt-1 text-xs leading-relaxed text-fio-textLight"
+                aria-live="polite"
+                role="status"
+              >
+                <p>{audioStatus}</p>
+                <p className="mt-2">
+                  A prévia usa a voz disponível no navegador. Revise o texto
+                  antes de gravar ou publicar.
+                </p>
+              </div>
             </div>
 
             <div className="bg-white rounded-2xl shadow-card border border-fio-border overflow-hidden">
               <div className="p-4 border-b border-fio-border bg-fio-paper">
                 <h3 className="font-serif font-medium text-fio-text flex items-center gap-2">
-                  <FileAudio className="w-4 h-4 text-fio-teal" />O que foi
-                  aplicado
+                  <FileAudio className="w-4 h-4 text-fio-teal" />
+                  Preparação aplicada
                 </h3>
               </div>
               <div className="p-4 space-y-3">
                 {[
-                  ['Siglas expandidas', '3'],
+                  ['Siglas preparadas', '3'],
                   ['Citações adaptadas', '2'],
-                  ['Imagens com orientação', '1'],
+                  ['Referências separadas', '1'],
                 ].map(([label, value]) => (
                   <div
                     key={label}
@@ -146,14 +229,8 @@ export const Result = ({
               <ul className="space-y-3 text-xs text-fio-textLight leading-relaxed">
                 <li className="flex gap-2">
                   <span className="text-fio-sand">•</span>
-                  As referências bibliográficas foram extraídas e devem ser
-                  gravadas em um arquivo de áudio separado, conforme padrão
-                  Fiocruz.
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-fio-sand">•</span>
-                  Uma imagem foi detectada. Certifique-se de que a equipe de
-                  acessibilidade forneceu o roteiro de audiodescrição.
+                  As referências bibliográficas devem ser tratadas em um
+                  arquivo separado, conforme orientação do projeto.
                 </li>
               </ul>
             </div>

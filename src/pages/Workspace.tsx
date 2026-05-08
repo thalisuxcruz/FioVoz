@@ -4,7 +4,6 @@ import {
   Check,
   ChevronRight,
   FileText,
-  Image as ImageIcon,
   Shield,
   Sparkles,
 } from 'lucide-react'
@@ -17,7 +16,6 @@ export const Workspace = ({
 }) => {
   const [text, setText] = useState('')
   const [sepRefs, setSepRefs] = useState(true)
-  const [hasImages, setHasImages] = useState(false)
 
   const handleProcess = () => {
     if (text.trim().length > 0) {
@@ -29,8 +27,6 @@ export const Workspace = ({
     setText(`A vigilância epidemiológica no Brasil (SILVA, 2021, p. 112) tem sido fundamental para o controle de doenças. Segundo o Ministério da Saúde, "a notificação compulsória é o principal instrumento" (2020).
 
 A OMS estabelece diretrizes globais para o monitoramento.
-
-[Fig. 1 - Mapa de Casos de Dengue em 2022]
 
 O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
 "A capilaridade do sistema permite respostas rápidas a surtos locais." (p. 45)`)
@@ -56,7 +52,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
               <div className="p-4 border-b border-fio-border bg-fio-paper flex justify-between items-center">
                 <h2 className="font-serif text-lg text-fio-text flex items-center gap-2">
                   <FileText className="w-5 h-5 text-fio-teal" />
-                  Cole aqui o texto da aula
+                  Cole o texto da aula
                 </h2>
                 <button
                   onClick={loadExample}
@@ -70,7 +66,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                 <textarea
                   value={text}
                   onChange={(event) => setText(event.target.value)}
-                  placeholder="Cole o texto do documento aqui. O FioVoz vai estruturar para narração sem alterar o conteúdo original."
+                  placeholder="Cole o texto do documento. O FioVoz irá prepará-lo para narração sem alterar o conteúdo original."
                   className="w-full h-full resize-none outline-none font-serif text-lg leading-relaxed text-fio-text placeholder:text-fio-textLight/50 bg-transparent"
                 />
 
@@ -78,7 +74,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                   <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center text-fio-textLight/40">
                     <Sparkles className="w-12 h-12 mb-4 opacity-20" />
                     <p className="font-serif text-lg">
-                      Seu texto estruturado aparecerá aqui
+                      O texto preparado aparecerá aqui
                     </p>
                   </div>
                 )}
@@ -106,28 +102,6 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                     Referências em arquivo separado
                   </span>
                 </label>
-
-                <label className="flex items-center gap-2 cursor-pointer group">
-                  <span
-                    className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
-                      hasImages
-                        ? 'bg-fio-teal border-fio-teal text-white'
-                        : 'border-fio-border bg-white group-hover:border-fio-teal'
-                    }`}
-                  >
-                    {hasImages && <Check className="w-3.5 h-3.5" />}
-                  </span>
-                  <input
-                    type="checkbox"
-                    className="sr-only"
-                    checked={hasImages}
-                    onChange={() => setHasImages(!hasImages)}
-                  />
-                  <span className="text-fio-text group-hover:text-fio-teal transition-colors flex items-center gap-1.5">
-                    <ImageIcon className="w-4 h-4 text-fio-textLight" /> Aula
-                    possui imagens/tabelas
-                  </span>
-                </label>
               </div>
             </div>
 
@@ -138,7 +112,7 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                 disabled={text.trim().length === 0}
                 className="w-full sm:w-auto"
               >
-                Processar documento
+                Preparar para narração
               </Button>
               <Button
                 variant="ghost"
@@ -155,21 +129,20 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
               <div className="h-2 bg-fio-sand" />
               <div className="p-6">
                 <h3 className="font-serif text-lg text-fio-text mb-4">
-                  Regras essenciais
+                  Critérios essenciais
                 </h3>
                 <p className="text-sm text-fio-textLight mb-6">
-                  O FioVoz aplicará automaticamente as seguintes adaptações ao
-                  seu texto:
+                  Ao preparar o texto, o FioVoz aplica os seguintes critérios:
                 </p>
 
                 <ul className="space-y-3 mb-8">
                   {[
                     'Expandir e sonorizar siglas',
-                    'Adaptar citações para leitura',
-                    'Remover paginação solta',
-                    'Tratar notas de rodapé',
-                    'Orientar descrições de imagens',
-                    'Separar bibliografia',
+                    'Adaptar citações para leitura em voz alta',
+                    'Remover numeração de páginas',
+                    'Tratar notas explicativas',
+                    'Separar referências bibliográficas',
+                    'Preservar o conteúdo original',
                   ].map((rule) => (
                     <li
                       key={rule}
@@ -190,9 +163,8 @@ O SUS atua na ponta, garantindo atendimento. Como aponta Oliveira (2019):
                       Conteúdo preservado
                     </h4>
                     <p className="text-xs text-fio-textLight leading-relaxed">
-                      O conteúdo original é preservado integralmente. Nenhuma
-                      palavra do autor é alterada, apenas a estrutura de leitura
-                      é adaptada para o locutor.
+                      O conteúdo original é preservado. O FioVoz organiza o
+                      texto para leitura em voz alta, sem reescrever a aula.
                     </p>
                   </div>
                 </div>

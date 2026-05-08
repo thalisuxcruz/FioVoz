@@ -45,21 +45,3 @@
     text-wrap: balance;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .fiovoz-demo-result {
-    animation: fiovoz-demo-fade 240ms ease-in-out;
-  }
-}
-
-@keyframes fiovoz-demo-fade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
